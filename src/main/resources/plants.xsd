@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://by.anastasia.task2/plants"
+        xmlns:tns="http://by.anastasia.task2/plants"
+        elementFormDefault="qualified">
+
+    <element name="plants">
+        <complexType>
+            <sequence>
+                <element name="plant" type="tns:plant" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="plant" type="tns:plant" abstract="true"/>
+    <element name="monocotyledon" type="tns:monocotyledon" substitutionGroup="tns:plant"/>
+    <element name="dicotyledon" type="tns:dicotyledon" substitutionGroup="tns:plant"/>
+
+    <complexType name="plant">
+        <sequence>
+            <element name="soil" type="string"/>
+            <element name="origin" type="tns:origin"/>
+            <element name="stemColor" type="string"/>
+            <element name="leafColor" type="string"/>
+            <element name="size" type="positiveInteger"/>
+            <element name="temperature" type="tns:temperature"/>
+            <element name="photophilous" type="boolean"/>
+            <element name="multiplying" type="tns:multiplying"/>
+        </sequence>
+        <attribute name="id" type="tns:id" use="required"/>
+        <attribute name="name" type="string"/>
+    </complexType>
+
+    <complexType name="monocotyledon">
+        <complexContent>
+            <extension base="tns:plant">
+                <sequence>
+                    <element name="isFlowerForming" type="boolean"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="dicotyledon">
+        <complexContent>
+            <extension base="tns:plant">
+                <sequence>
+                    <element name="calyxType" type="tns:calyxType"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <simpleType name="id">
+        <restriction base="ID">
+            <pattern value="[A-Z]\\d{6}"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="origin">
+        <restriction base="string">
+            <enumeration value="Europe"/>
+            <enumeration value="Asia"/>
+            <enumeration value="Africa"/>
+            <enumeration value="Australia"/>
+            <enumeration value="South America"/>
+            <enumeration value="North America"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="temperature">
+        <restriction base="integer">
+            <minInclusive value="-273"/>
+            <maxInclusive value="56"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="multiplying">
+        <restriction base="string">
+            <enumeration value="cuttings"/>
+            <enumeration value="layering"/>
+            <enumeration value="seeds"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="calyxType">
+        <restriction base="string">
+            <enumeration value="segmented"/>
+            <enumeration value="united segments"/>
+        </restriction>
+    </simpleType>
+</schema>

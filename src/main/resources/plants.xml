@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<plants xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://by.anastasia.task2/plants"
+        xsi:schemaLocation="http://by.anastasia.task2/plants plants.xsd">
+
+    <dicotyledon id="R100002" name="Rosa chinesis">
+        <soil>derno-podzolic</soil>
+        <origin>Asia</origin>
+        <stemColor>green</stemColor>
+        <leafColor>green</leafColor>
+        <size>150</size>
+        <temperature>20</temperature>
+        <photophilous>true</photophilous>
+        <multiplying>cuttings</multiplying>
+        <calyxType>segmented</calyxType>
+    </dicotyledon>
+    <monocotyledon id="N100003" name="Nymphaea">
+        <soil>loamy</soil>
+        <origin>Europe</origin>
+        <stemColor>green</stemColor>
+        <leafColor>green</leafColor>
+        <size>50</size>
+        <temperature>4</temperature>
+        <photophilous>true</photophilous>
+        <multiplying>layering</multiplying>
+        <isFlowerForming>true</isFlowerForming>
+    </monocotyledon>
+    <monocotyledon id="H100004" name="Hosta">
+        <soil>loamy</soil>
+        <origin>Asia</origin>
+        <stemColor>green</stemColor>
+        <leafColor>green</leafColor>
+        <size>40</size>
+        <temperature>15</temperature>
+        <photophilous>false</photophilous>
+        <multiplying>seeds</multiplying>
+        <isFlowerForming>true</isFlowerForming>
+    </monocotyledon>
+    <dicotyledon id="B100005" name="Barbaris">
+        <soil>loamy</soil>
+        <origin>North America</origin>
+        <stemColor>red</stemColor>
+        <leafColor>red-purple</leafColor>
+        <size>180</size>
+        <temperature>5</temperature>
+        <photophilous>true</photophilous>
+        <multiplying>cuttings</multiplying>
+        <calyxType>segmented</calyxType>
+    </dicotyledon>
+</plants>
