@@ -1,34 +1,53 @@
 package by.anastasia.task2.entity;
 
+import java.util.Locale;
 import java.util.Objects;
 
 public class DicotyledonPlant extends Plant {
     private String calyxType;
 
-    public DicotyledonPlant() {
-    }
-
-    public DicotyledonPlant(String id, String name, String soil, String origin, String stemColor, String leafColor, int size, int temperature, boolean isPhotophilous, String multiplying, String calyxType) {
-        super(id, name, soil, origin, stemColor, leafColor, size, temperature, isPhotophilous, multiplying);
-        this.calyxType = calyxType;
+    private DicotyledonPlant() {
     }
 
     public String getCalyxType() {
         return calyxType;
     }
 
-    public void setCalyxType(String calyxType) {
-        this.calyxType = calyxType;
+    public static DicotyledonPlantBuilder newDicotyledonPlantBuilder() {
+        return new DicotyledonPlant().new DicotyledonPlantBuilder();
+    }
+
+    public class DicotyledonPlantBuilder extends PlantBuilder {
+        private DicotyledonPlantBuilder() {
+        }
+
+        public DicotyledonPlantBuilder setCalyxType(String calyxType) {
+            DicotyledonPlant.this.calyxType = calyxType;
+            return this;
+        }
+
+        @Override
+        public DicotyledonPlant build() {
+            return DicotyledonPlant.this;
+        }
     }
 
     @Override
     public boolean equals(Object o) {
-        return super.equals(o);
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+
+        DicotyledonPlant plant = (DicotyledonPlant) o;
+
+        return (calyxType != null ? !calyxType.equals(plant.calyxType) : plant.calyxType != null);
     }
 
     @Override
     public int hashCode() {
-        return super.hashCode() + Objects.hashCode(calyxType);
+        int result = super.hashCode();
+        result = 31 * result + (calyxType != null ? calyxType.hashCode() : 0);
+        return result;
     }
 
     @Override
@@ -48,3 +67,4 @@ public class DicotyledonPlant extends Plant {
                 '}';
     }
 }
+

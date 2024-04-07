@@ -7,54 +7,55 @@
     <element name="plants">
         <complexType>
             <sequence>
-                <element name="plant" type="tns:plant" maxOccurs="unbounded"/>
+                <element ref="tns:Plant" maxOccurs="unbounded"/>
             </sequence>
         </complexType>
     </element>
-    <element name="plant" type="tns:plant" abstract="true"/>
-    <element name="monocotyledon" type="tns:monocotyledon" substitutionGroup="tns:plant"/>
-    <element name="dicotyledon" type="tns:dicotyledon" substitutionGroup="tns:plant"/>
+    <element name="Plant" type="tns:Plant" abstract="true"/>
+    <element name="monocotyledon" type="tns:Monocotyledon" substitutionGroup="tns:Plant"/>
+    <element name="dicotyledon" type="tns:Dicotyledon" substitutionGroup="tns:Plant"/>
 
-    <complexType name="plant">
+    <complexType name="Plant">
         <sequence>
             <element name="soil" type="string"/>
-            <element name="origin" type="tns:origin"/>
+            <element name="origin" type="tns:Origin"/>
             <element name="stemColor" type="string"/>
             <element name="leafColor" type="string"/>
             <element name="size" type="positiveInteger"/>
-            <element name="temperature" type="tns:temperature"/>
+            <element name="temperature" type="tns:Temperature"/>
             <element name="photophilous" type="boolean"/>
-            <element name="multiplying" type="tns:multiplying"/>
+            <element name="multiplying" type="tns:Multiplying"/>
         </sequence>
-        <attribute name="id" type="tns:id" use="required"/>
+        <attribute name="plantId" type="tns:PlantId" use="required"/>
+        <attribute name="plantingDate" type="date"/>
         <attribute name="name" type="string"/>
     </complexType>
 
-    <complexType name="monocotyledon">
+    <complexType name="Monocotyledon">
         <complexContent>
-            <extension base="tns:plant">
+            <extension base="tns:Plant">
                 <sequence>
                     <element name="isFlowerForming" type="boolean"/>
                 </sequence>
             </extension>
         </complexContent>
     </complexType>
-    <complexType name="dicotyledon">
+    <complexType name="Dicotyledon">
         <complexContent>
-            <extension base="tns:plant">
+            <extension base="tns:Plant">
                 <sequence>
-                    <element name="calyxType" type="tns:calyxType"/>
+                    <element name="calyxType" type="tns:CalyxType"/>
                 </sequence>
             </extension>
         </complexContent>
     </complexType>
 
-    <simpleType name="id">
+    <simpleType name="PlantId">
         <restriction base="ID">
-            <pattern value="[A-Z]\\d{6}"/>
+            <pattern value="[A-Z][0-9]{6}"/>
         </restriction>
     </simpleType>
-    <simpleType name="origin">
+    <simpleType name="Origin">
         <restriction base="string">
             <enumeration value="Europe"/>
             <enumeration value="Asia"/>
@@ -64,20 +65,20 @@
             <enumeration value="North America"/>
         </restriction>
     </simpleType>
-    <simpleType name="temperature">
+    <simpleType name="Temperature">
         <restriction base="integer">
             <minInclusive value="-273"/>
             <maxInclusive value="56"/>
         </restriction>
     </simpleType>
-    <simpleType name="multiplying">
+    <simpleType name="Multiplying">
         <restriction base="string">
             <enumeration value="cuttings"/>
             <enumeration value="layering"/>
             <enumeration value="seeds"/>
         </restriction>
     </simpleType>
-    <simpleType name="calyxType">
+    <simpleType name="CalyxType">
         <restriction base="string">
             <enumeration value="segmented"/>
             <enumeration value="united segments"/>

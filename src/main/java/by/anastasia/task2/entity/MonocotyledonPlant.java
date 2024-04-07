@@ -5,30 +5,48 @@ import java.util.Objects;
 public class MonocotyledonPlant extends Plant {
     private boolean isFlowerForming;
 
-    public MonocotyledonPlant() {
-    }
-
-    public MonocotyledonPlant(String id, String name, String soil, String origin, String stemColor, String leafColor, int size, int temperature, boolean isPhotophilous, String multiplying, boolean isFlowerForming) {
-        super(id, name, soil, origin, stemColor, leafColor, size, temperature, isPhotophilous, multiplying);
-        this.isFlowerForming = isFlowerForming;
+    private MonocotyledonPlant() {
     }
 
     public boolean isFlowerForming() {
         return isFlowerForming;
     }
 
-    public void setFlowerForming(boolean flowerForming) {
-        isFlowerForming = flowerForming;
+    public static MonocotyledonPlantBuilder newMonocotyledonPlantBuilder() {
+        return new MonocotyledonPlant().new MonocotyledonPlantBuilder();
+    }
+    
+    public class MonocotyledonPlantBuilder extends PlantBuilder {
+        private MonocotyledonPlantBuilder() {
+        }
+
+        public MonocotyledonPlantBuilder setIsFlowerForming(boolean isFlowerForming) {
+            MonocotyledonPlant.this.isFlowerForming = isFlowerForming;
+            return this;
+        }
+
+        @Override
+        public MonocotyledonPlant build() {
+            return MonocotyledonPlant.this;
+        }
     }
 
     @Override
     public boolean equals(Object o) {
-        return super.equals(o);
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+
+        MonocotyledonPlant that = (MonocotyledonPlant) o;
+
+        return isFlowerForming == that.isFlowerForming;
     }
 
     @Override
     public int hashCode() {
-        return super.hashCode() + Objects.hashCode(isFlowerForming);
+        int result = super.hashCode();
+        result = 31 * result + (isFlowerForming ? 1 : 0);
+        return result;
     }
 
     @Override
