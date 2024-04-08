@@ -1,7 +1,8 @@
-package by.anastasia.task2.validator;
+package by.anastasia.task2.validator.impl;
 
 import by.anastasia.task2.exception.PlantException;
 import by.anastasia.task2.handler.PlantErrorHandler;
+import by.anastasia.task2.validator.PlantXmlValidator;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
