@@ -3,7 +3,7 @@
         xmlns="http://by.anastasia.task2/plants"
         xsi:schemaLocation="http://by.anastasia.task2/plants plants.xsd">
 
-    <dicotyledon plantId="R100002" plantingDate="2023-04-16" name="Rosa chinesis">
+    <dicotyledon plantId="R100001" plantingDate="2023-04-16" name="Rosa chinesis">
         <soil>derno-podzolic</soil>
         <origin>Asia</origin>
         <stemColor>green</stemColor>
@@ -14,7 +14,7 @@
         <multiplying>cuttings</multiplying>
         <calyxType>segmented</calyxType>
     </dicotyledon>
-    <monocotyledon plantId="N100003" plantingDate="2022-03-23" name="Nymphaea">
+    <monocotyledon plantId="N100002" plantingDate="2022-03-23" name="Nymphaea">
         <soil>loamy</soil>
         <origin>Europe</origin>
         <stemColor>green</stemColor>
@@ -25,7 +25,7 @@
         <multiplying>layering</multiplying>
         <isFlowerForming>true</isFlowerForming>
     </monocotyledon>
-    <monocotyledon plantId="H100004" plantingDate="2023-06-04" name="Hosta">
+    <monocotyledon plantId="H100003" plantingDate="2023-06-04" name="Hosta">
         <soil>loamy</soil>
         <origin>Asia</origin>
         <stemColor>green</stemColor>
@@ -36,7 +36,7 @@
         <multiplying>seeds</multiplying>
         <isFlowerForming>true</isFlowerForming>
     </monocotyledon>
-    <dicotyledon plantId="B100005" plantingDate="2021-09-05" name="Barbaris">
+    <dicotyledon plantId="B100004" plantingDate="2021-09-05" name="Barbaris">
         <soil>loamy</soil>
         <origin>North America</origin>
         <stemColor>red</stemColor>
@@ -47,4 +47,48 @@
         <multiplying>cuttings</multiplying>
         <calyxType>segmented</calyxType>
     </dicotyledon>
+    <dicotyledon plantId="S100005" plantingDate="2022-05-05" name="Strawberry">
+        <soil>loamy</soil>
+        <origin>South America</origin>
+        <stemColor>green</stemColor>
+        <leafColor>green</leafColor>
+        <size>15</size>
+        <temperature>24</temperature>
+        <photophilous>true</photophilous>
+        <multiplying>hybridization</multiplying>
+        <calyxType>segmented</calyxType>
+    </dicotyledon>
+    <dicotyledon plantId="C100006" plantingDate="2020-03-27" name="Cherry">
+        <soil>loamy</soil>
+        <origin>Europe</origin>
+        <stemColor>brown</stemColor>
+        <leafColor>green</leafColor>
+        <size>220</size>
+        <temperature>7</temperature>
+        <photophilous>true</photophilous>
+        <multiplying>layering</multiplying>
+        <calyxType>segmented</calyxType>
+    </dicotyledon>
+    <dicotyledon plantId="S100007" plantingDate="2018-04-13" name="Sakura">
+        <soil>loamy</soil>
+        <origin>Asia</origin>
+        <stemColor>brown</stemColor>
+        <leafColor>green</leafColor>
+        <size>350</size>
+        <temperature>20</temperature>
+        <photophilous>true</photophilous>
+        <multiplying>cuttings</multiplying>
+        <calyxType>united segments</calyxType>
+    </dicotyledon>
+    <monocotyledon plantId="P100008" plantingDate="2017-08-04" name="Palm">
+        <soil>humus</soil>
+        <origin>Africa</origin>
+        <stemColor>brown</stemColor>
+        <leafColor>green</leafColor>
+        <size>270</size>
+        <temperature>22</temperature>
+        <photophilous>true</photophilous>
+        <multiplying>seeds</multiplying>
+        <isFlowerForming>false</isFlowerForming>
+    </monocotyledon>
 </plants>

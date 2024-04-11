@@ -1,8 +1,6 @@
 package by.anastasia.task2.entity;
 
-import java.util.Objects;
-
-public class MonocotyledonPlant extends Plant {
+public class MonocotyledonPlant extends AbstractPlant {
     private boolean isFlowerForming;
 
     private MonocotyledonPlant() {

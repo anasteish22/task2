@@ -76,6 +76,7 @@
             <enumeration value="cuttings"/>
             <enumeration value="layering"/>
             <enumeration value="seeds"/>
+            <enumeration value="hybridization"/>
         </restriction>
     </simpleType>
     <simpleType name="CalyxType">

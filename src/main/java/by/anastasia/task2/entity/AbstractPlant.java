@@ -1,9 +1,8 @@
 package by.anastasia.task2.entity;
 
 import java.time.LocalDate;
-import java.util.Objects;
 
-public abstract class Plant {
+public abstract class AbstractPlant {
     private String id;
     private LocalDate plantingDate;
     private String name;
@@ -17,7 +16,7 @@ public abstract class Plant {
     private boolean isPhotophilous;
     private String multiplying;
 
-    protected Plant() {
+    protected AbstractPlant() {
     }
 
     public String getId() {
@@ -69,62 +68,62 @@ public abstract class Plant {
         }
 
         public PlantBuilder setId(String id) {
-            Plant.this.id = id;
+            AbstractPlant.this.id = id;
             return this;
         }
 
         public PlantBuilder setPlantingDate(LocalDate plantingDate) {
-            Plant.this.plantingDate = plantingDate;
+            AbstractPlant.this.plantingDate = plantingDate;
             return this;
         }
 
         public PlantBuilder setName(String name) {
-            Plant.this.name = name;
+            AbstractPlant.this.name = name;
             return this;
         }
 
         public PlantBuilder setSoil(String soil) {
-            Plant.this.soil = soil;
+            AbstractPlant.this.soil = soil;
             return this;
         }
 
         public PlantBuilder setOrigin(String origin) {
-            Plant.this.origin = origin;
+            AbstractPlant.this.origin = origin;
             return this;
         }
 
         public PlantBuilder setStemColor(String stemColor) {
-            Plant.this.stemColor = stemColor;
+            AbstractPlant.this.stemColor = stemColor;
             return this;
         }
 
         public PlantBuilder setLeafColor(String leafColor) {
-            Plant.this.leafColor = leafColor;
+            AbstractPlant.this.leafColor = leafColor;
             return this;
         }
 
         public PlantBuilder setSize(int size) {
-            Plant.this.size = size;
+            AbstractPlant.this.size = size;
             return this;
         }
 
         public PlantBuilder setTemperature(int temperature) {
-            Plant.this.temperature = temperature;
+            AbstractPlant.this.temperature = temperature;
             return this;
         }
 
         public PlantBuilder setIsPhotophilous(boolean isPhotophilous) {
-            Plant.this.isPhotophilous = isPhotophilous;
+            AbstractPlant.this.isPhotophilous = isPhotophilous;
             return this;
         }
 
         public PlantBuilder setMultiplying(String multiplying) {
-            Plant.this.multiplying = multiplying;
+            AbstractPlant.this.multiplying = multiplying;
             return this;
         }
 
-        public Plant build() {
-            return Plant.this;
+        public AbstractPlant build() {
+            return AbstractPlant.this;
         }
     }
 
@@ -133,19 +132,19 @@ public abstract class Plant {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Plant plant = (Plant) o;
+        AbstractPlant abstractPlant = (AbstractPlant) o;
 
-        if (size != plant.size) return false;
-        if (temperature != plant.temperature) return false;
-        if (isPhotophilous != plant.isPhotophilous) return false;
-        if (id != null ? !id.equals(plant.id) : plant.id != null) return false;
-        if (plantingDate != null ? !plantingDate.equals(plant.plantingDate) : plant.plantingDate != null) return false;
-        if (name != null ? !name.equals(plant.name) : plant.name != null) return false;
-        if (soil != null ? !soil.equals(plant.soil) : plant.soil != null) return false;
-        if (origin != null ? !origin.equals(plant.origin) : plant.origin != null) return false;
-        if (stemColor != null ? !stemColor.equals(plant.stemColor) : plant.stemColor != null) return false;
-        if (leafColor != null ? !leafColor.equals(plant.leafColor) : plant.leafColor != null) return false;
-        return (multiplying != null ? !multiplying.equals(plant.multiplying) : plant.multiplying != null);
+        if (size != abstractPlant.size) return false;
+        if (temperature != abstractPlant.temperature) return false;
+        if (isPhotophilous != abstractPlant.isPhotophilous) return false;
+        if (id != null ? !id.equals(abstractPlant.id) : abstractPlant.id != null) return false;
+        if (plantingDate != null ? !plantingDate.equals(abstractPlant.plantingDate) : abstractPlant.plantingDate != null) return false;
+        if (name != null ? !name.equals(abstractPlant.name) : abstractPlant.name != null) return false;
+        if (soil != null ? !soil.equals(abstractPlant.soil) : abstractPlant.soil != null) return false;
+        if (origin != null ? !origin.equals(abstractPlant.origin) : abstractPlant.origin != null) return false;
+        if (stemColor != null ? !stemColor.equals(abstractPlant.stemColor) : abstractPlant.stemColor != null) return false;
+        if (leafColor != null ? !leafColor.equals(abstractPlant.leafColor) : abstractPlant.leafColor != null) return false;
+        return (multiplying != null ? !multiplying.equals(abstractPlant.multiplying) : abstractPlant.multiplying != null);
     }
 
     @Override

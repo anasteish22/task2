@@ -19,11 +19,11 @@ import java.io.IOException;
 
 public class PlantXmlValidatorImpl implements PlantXmlValidator {
     static final Logger LOGGER = LogManager.getLogger();
-    private static String SCHEMA_NAME = "plants.xsd";
-    private static String FILE_NAME = "plants.xml";
-    private static String language = XMLConstants.W3C_XML_SCHEMA_INSTANCE_NS_URI;
+    private static final String SCHEMA_NAME = "plants.xsd";
+    private static final String FILE_NAME = "plants.xml";
+    private static final String language = XMLConstants.W3C_XML_SCHEMA_INSTANCE_NS_URI;
 
-    private static PlantXmlValidatorImpl instance = new PlantXmlValidatorImpl();
+    private static final PlantXmlValidatorImpl instance = new PlantXmlValidatorImpl();
 
     private PlantXmlValidatorImpl() {
     }

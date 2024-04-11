@@ -1,9 +1,6 @@
 package by.anastasia.task2.entity;
 
-import java.util.Locale;
-import java.util.Objects;
-
-public class DicotyledonPlant extends Plant {
+public class DicotyledonPlant extends AbstractPlant {
     private String calyxType;
 
     private DicotyledonPlant() {

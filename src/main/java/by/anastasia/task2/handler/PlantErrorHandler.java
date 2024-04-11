@@ -8,7 +8,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
 public class PlantErrorHandler implements ErrorHandler {
-    final static Logger LOGGER = LogManager.getLogger();
+    static final Logger LOGGER = LogManager.getLogger();
 
     @Override
     public void warning(SAXParseException exception) throws SAXException {
