@@ -1,13 +1,13 @@
 package by.anastasia.task2.entity;
 
 import java.time.LocalDate;
+import java.util.StringJoiner;
 
 public abstract class AbstractPlant {
     private String id;
     private LocalDate plantingDate;
     private String name;
     private String soil;
-
     private String origin;
     private String stemColor;
     private String leafColor;

@@ -19,10 +19,6 @@ import java.io.IOException;
 
 public class PlantXmlValidatorImpl implements PlantXmlValidator {
     static final Logger LOGGER = LogManager.getLogger();
-    private static final String SCHEMA_NAME = "plants.xsd";
-    private static final String FILE_NAME = "plants.xml";
-    private static final String language = XMLConstants.W3C_XML_SCHEMA_INSTANCE_NS_URI;
-
     private static final PlantXmlValidatorImpl instance = new PlantXmlValidatorImpl();
 
     private PlantXmlValidatorImpl() {
@@ -32,24 +28,24 @@ public class PlantXmlValidatorImpl implements PlantXmlValidator {
         return instance;
     }
 
-    public boolean validateXml() throws PlantException {
-        File schemaLocation = new File(SCHEMA_NAME);
-        SchemaFactory factory = SchemaFactory.newInstance(language);
+    public boolean validateXml(String schemaName, String fileName) throws PlantException {
+        File schemaLocation = new File(schemaName);
+        SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_INSTANCE_NS_URI);
         Schema schema = null;
-        Source source = new StreamSource(FILE_NAME);
+        Source source = new StreamSource(fileName);
         Validator validator = schema.newValidator();
         validator.setErrorHandler(new PlantErrorHandler());
         try {
             schema = factory.newSchema(schemaLocation);
             validator.validate(source);
         } catch (SAXException e) {
-            LOGGER.log(Level.WARN, "File is not valid: " + FILE_NAME);
+            LOGGER.log(Level.WARN, "File is not valid: " + fileName);
             return false;
         } catch (IOException e) {
-            LOGGER.log(Level.ERROR, "Invalid file path: " + SCHEMA_NAME);
-            throw new PlantException("Invalid file path: " + SCHEMA_NAME);
+            LOGGER.log(Level.ERROR, "Invalid file path: " + schemaName);
+            throw new PlantException("Invalid file path: " + schemaName);
         }
-        LOGGER.log(Level.INFO, "File is valid: " + FILE_NAME);
+        LOGGER.log(Level.INFO, "File is valid: " + fileName);
         return true;
     }
 }
