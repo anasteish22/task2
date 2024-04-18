@@ -17,8 +17,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class PlantStaxBuilder {
-    private static final char DASH = '-';
-    private static final char UNDERSCORE = '_';
     private Set<AbstractPlant> plants;
     private XMLInputFactory inputFactory;
 
