@@ -1,32 +1,35 @@
 package by.anastasia.task2.entity;
 
+import java.time.LocalDate;
+
 public class MonocotyledonPlant extends AbstractPlant {
     private boolean isFlowerForming;
 
-    private MonocotyledonPlant() {
+    public MonocotyledonPlant() {
+    }
+
+    public MonocotyledonPlant(String id,
+                              LocalDate plantingDate,
+                              String name,
+                              String soil,
+                              String origin,
+                              String stemColor,
+                              String leafColor,
+                              int size,
+                              int temperature,
+                              boolean isPhotophilous,
+                              String multiplying,
+                              boolean isFlowerForming) {
+        super(id, plantingDate, name, soil, origin, stemColor, leafColor, size, temperature, isPhotophilous, multiplying);
+        this.isFlowerForming = isFlowerForming;
     }
 
     public boolean isFlowerForming() {
         return isFlowerForming;
     }
 
-    public static MonocotyledonPlantBuilder newMonocotyledonPlantBuilder() {
-        return new MonocotyledonPlant().new MonocotyledonPlantBuilder();
-    }
-    
-    public class MonocotyledonPlantBuilder extends PlantBuilder {
-        private MonocotyledonPlantBuilder() {
-        }
-
-        public MonocotyledonPlantBuilder setIsFlowerForming(boolean isFlowerForming) {
-            MonocotyledonPlant.this.isFlowerForming = isFlowerForming;
-            return this;
-        }
-
-        @Override
-        public MonocotyledonPlant build() {
-            return MonocotyledonPlant.this;
-        }
+    public void setFlowerForming(boolean flowerForming) {
+        isFlowerForming = flowerForming;
     }
 
     @Override

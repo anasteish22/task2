@@ -16,115 +16,119 @@ public abstract class AbstractPlant {
     private boolean isPhotophilous;
     private String multiplying;
 
-    protected AbstractPlant() {
+    public AbstractPlant() {
+    }
+
+    public AbstractPlant(String id,
+                         LocalDate plantingDate,
+                         String name,
+                         String soil,
+                         String origin,
+                         String stemColor,
+                         String leafColor,
+                         int size,
+                         int temperature,
+                         boolean isPhotophilous,
+                         String multiplying) {
+        this.id = id;
+        this.plantingDate = plantingDate;
+        this.name = name;
+        this.soil = soil;
+        this.origin = origin;
+        this.stemColor = stemColor;
+        this.leafColor = leafColor;
+        this.size = size;
+        this.temperature = temperature;
+        this.isPhotophilous = isPhotophilous;
+        this.multiplying = multiplying;
     }
 
     public String getId() {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public LocalDate getPlantingDate() {
         return plantingDate;
     }
 
+    public void setPlantingDate(LocalDate plantingDate) {
+        this.plantingDate = plantingDate;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getSoil() {
         return soil;
+    }
+
+    public void setSoil(String soil) {
+        this.soil = soil;
     }
 
     public String getOrigin() {
         return origin;
     }
 
+    public void setOrigin(String origin) {
+        this.origin = origin;
+    }
+
     public String getStemColor() {
         return stemColor;
+    }
+
+    public void setStemColor(String stemColor) {
+        this.stemColor = stemColor;
     }
 
     public String getLeafColor() {
         return leafColor;
     }
 
+    public void setLeafColor(String leafColor) {
+        this.leafColor = leafColor;
+    }
+
     public int getSize() {
         return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
     }
 
     public int getTemperature() {
         return temperature;
     }
 
+    public void setTemperature(int temperature) {
+        this.temperature = temperature;
+    }
+
     public boolean isPhotophilous() {
         return isPhotophilous;
+    }
+
+    public void setPhotophilous(boolean photophilous) {
+        isPhotophilous = photophilous;
     }
 
     public String getMultiplying() {
         return multiplying;
     }
 
-    public abstract class PlantBuilder {
-        protected PlantBuilder() {
-        }
-
-        public PlantBuilder setId(String id) {
-            AbstractPlant.this.id = id;
-            return this;
-        }
-
-        public PlantBuilder setPlantingDate(LocalDate plantingDate) {
-            AbstractPlant.this.plantingDate = plantingDate;
-            return this;
-        }
-
-        public PlantBuilder setName(String name) {
-            AbstractPlant.this.name = name;
-            return this;
-        }
-
-        public PlantBuilder setSoil(String soil) {
-            AbstractPlant.this.soil = soil;
-            return this;
-        }
-
-        public PlantBuilder setOrigin(String origin) {
-            AbstractPlant.this.origin = origin;
-            return this;
-        }
-
-        public PlantBuilder setStemColor(String stemColor) {
-            AbstractPlant.this.stemColor = stemColor;
-            return this;
-        }
-
-        public PlantBuilder setLeafColor(String leafColor) {
-            AbstractPlant.this.leafColor = leafColor;
-            return this;
-        }
-
-        public PlantBuilder setSize(int size) {
-            AbstractPlant.this.size = size;
-            return this;
-        }
-
-        public PlantBuilder setTemperature(int temperature) {
-            AbstractPlant.this.temperature = temperature;
-            return this;
-        }
-
-        public PlantBuilder setIsPhotophilous(boolean isPhotophilous) {
-            AbstractPlant.this.isPhotophilous = isPhotophilous;
-            return this;
-        }
-
-        public PlantBuilder setMultiplying(String multiplying) {
-            AbstractPlant.this.multiplying = multiplying;
-            return this;
-        }
-
-        public AbstractPlant build() {
-            return AbstractPlant.this;
-        }
+    public void setMultiplying(String multiplying) {
+        this.multiplying = multiplying;
     }
 
     @Override

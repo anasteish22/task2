@@ -1,32 +1,35 @@
 package by.anastasia.task2.entity;
 
+import java.time.LocalDate;
+
 public class DicotyledonPlant extends AbstractPlant {
     private String calyxType;
 
-    private DicotyledonPlant() {
+    public DicotyledonPlant() {
+    }
+
+    public DicotyledonPlant(String id,
+                            LocalDate plantingDate,
+                            String name,
+                            String soil,
+                            String origin,
+                            String stemColor,
+                            String leafColor,
+                            int size,
+                            int temperature,
+                            boolean isPhotophilous,
+                            String multiplying,
+                            String calyxType) {
+        super(id, plantingDate, name, soil, origin, stemColor, leafColor, size, temperature, isPhotophilous, multiplying);
+        this.calyxType = calyxType;
     }
 
     public String getCalyxType() {
         return calyxType;
     }
 
-    public static DicotyledonPlantBuilder newDicotyledonPlantBuilder() {
-        return new DicotyledonPlant().new DicotyledonPlantBuilder();
-    }
-
-    public class DicotyledonPlantBuilder extends PlantBuilder {
-        private DicotyledonPlantBuilder() {
-        }
-
-        public DicotyledonPlantBuilder setCalyxType(String calyxType) {
-            DicotyledonPlant.this.calyxType = calyxType;
-            return this;
-        }
-
-        @Override
-        public DicotyledonPlant build() {
-            return DicotyledonPlant.this;
-        }
+    public void setCalyxType(String calyxType) {
+        this.calyxType = calyxType;
     }
 
     @Override

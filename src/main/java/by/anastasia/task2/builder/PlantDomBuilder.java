@@ -32,7 +32,7 @@ public class PlantDomBuilder {
         try {
             documentBuilder = factory.newDocumentBuilder();
         } catch (ParserConfigurationException e) {
-            LOGGER.log(Level.ERROR,"Failed configuration: PlantDomBuilder");
+            LOGGER.log(Level.ERROR, "Failed configuration: PlantDomBuilder");
             throw new PlantException("Failed configuration: PlantDomBuilder");
         }
         LOGGER.log(Level.INFO, "Successful configuration: PlantDomBuilder");
@@ -76,38 +76,36 @@ public class PlantDomBuilder {
     }
 
     private MonocotyledonPlant buildMonocotyledonPlant(Element plantElement) {
-        MonocotyledonPlant plant = (MonocotyledonPlant) MonocotyledonPlant.newMonocotyledonPlantBuilder()
-                .setIsFlowerForming(Boolean.parseBoolean(getElementTextContent(plantElement, "isFlowerForming")))
-                .setId(plantElement.getAttribute("plantId"))
-                .setName(plantElement.getAttribute("name"))
-                .setPlantingDate(LocalDate.parse(plantElement.getAttribute("plantingDate")))
-                .setSoil(getElementTextContent(plantElement, "soil"))
-                .setOrigin(getElementTextContent(plantElement, "origin"))
-                .setStemColor(getElementTextContent(plantElement, "stemColor"))
-                .setLeafColor(getElementTextContent(plantElement, "leafColor"))
-                .setSize(Integer.parseInt(getElementTextContent(plantElement, "size")))
-                .setTemperature(Integer.parseInt(getElementTextContent(plantElement, "temperature")))
-                .setIsPhotophilous(Boolean.parseBoolean(getElementTextContent(plantElement, "photophilous")))
-                .setMultiplying(getElementTextContent(plantElement, "multiplying"))
-                .build();
+        MonocotyledonPlant plant = new MonocotyledonPlant();
+        plant.setFlowerForming(Boolean.parseBoolean(getElementTextContent(plantElement, "isFlowerForming")));
+        plant.setId(plantElement.getAttribute("plantId"));
+        plant.setName(plantElement.getAttribute("name"));
+        plant.setPlantingDate(LocalDate.parse(plantElement.getAttribute("plantingDate")));
+        plant.setSoil(getElementTextContent(plantElement, "soil"));
+        plant.setOrigin(getElementTextContent(plantElement, "origin"));
+        plant.setStemColor(getElementTextContent(plantElement, "stemColor"));
+        plant.setLeafColor(getElementTextContent(plantElement, "leafColor"));
+        plant.setSize(Integer.parseInt(getElementTextContent(plantElement, "size")));
+        plant.setTemperature(Integer.parseInt(getElementTextContent(plantElement, "temperature")));
+        plant.setPhotophilous(Boolean.parseBoolean(getElementTextContent(plantElement, "photophilous")));
+        plant.setMultiplying(getElementTextContent(plantElement, "multiplying"));
         return plant;
     }
 
     private DicotyledonPlant buildDicotyledonPlant(Element plantElement) {
-        DicotyledonPlant plant = (DicotyledonPlant) DicotyledonPlant.newDicotyledonPlantBuilder()
-                .setCalyxType(getElementTextContent(plantElement, "calyxType"))
-                .setId(plantElement.getAttribute("plantId"))
-                .setName(plantElement.getAttribute("name"))
-                .setPlantingDate(LocalDate.parse(plantElement.getAttribute("plantingDate")))
-                .setSoil(getElementTextContent(plantElement, "soil"))
-                .setOrigin(getElementTextContent(plantElement, "origin"))
-                .setStemColor(getElementTextContent(plantElement, "stemColor"))
-                .setLeafColor(getElementTextContent(plantElement, "leafColor"))
-                .setSize(Integer.parseInt(getElementTextContent(plantElement, "size")))
-                .setTemperature(Integer.parseInt(getElementTextContent(plantElement, "temperature")))
-                .setIsPhotophilous(Boolean.parseBoolean(getElementTextContent(plantElement, "photophilous")))
-                .setMultiplying(getElementTextContent(plantElement, "multiplying"))
-                .build();
+        DicotyledonPlant plant = new DicotyledonPlant();
+        plant.setCalyxType(getElementTextContent(plantElement, "calyxType"));
+        plant.setId(plantElement.getAttribute("plantId"));
+        plant.setName(plantElement.getAttribute("name"));
+        plant.setPlantingDate(LocalDate.parse(plantElement.getAttribute("plantingDate")));
+        plant.setSoil(getElementTextContent(plantElement, "soil"));
+        plant.setOrigin(getElementTextContent(plantElement, "origin"));
+        plant.setStemColor(getElementTextContent(plantElement, "stemColor"));
+        plant.setLeafColor(getElementTextContent(plantElement, "leafColor"));
+        plant.setSize(Integer.parseInt(getElementTextContent(plantElement, "size")));
+        plant.setTemperature(Integer.parseInt(getElementTextContent(plantElement, "temperature")));
+        plant.setPhotophilous(Boolean.parseBoolean(getElementTextContent(plantElement, "photophilous")));
+        plant.setMultiplying(getElementTextContent(plantElement, "multiplying"));
         return plant;
     }
 
