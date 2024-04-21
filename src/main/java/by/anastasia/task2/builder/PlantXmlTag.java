@@ -4,19 +4,19 @@ public enum PlantXmlTag {
     PLANTS("plants"),
     DICOTYLEDON("dicotyledon"),
     MONOCOTYLEDON("monocotyledon"),
-    PLANT_ID("plantId"),
-    PLANTING_DATE("plantingDate"),
+    PLANTID("plantId"),
+    PLANTINGDATE("plantingDate"),
     NAME("name"),
     SOIL("soil"),
     ORIGIN("origin"),
-    STEM_COLOR("stemColor"),
-    LEAF_COLOR("leafColor"),
+    STEMCOLOR("stemColor"),
+    LEAFCOLOR("leafColor"),
     SIZE("size"),
     TEMPERATURE("temperature"),
     PHOTOPHILOUS("photophilous"),
     MULTIPLYING("multiplying"),
-    CALYX_TYPE("calyxType"),
-    IS_FLOWER_FORMING("isFlowerForming");
+    CALYXTYPE("calyxType"),
+    ISFLOWERFORMING("isFlowerForming");
 
     private String value;
 

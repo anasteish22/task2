@@ -61,9 +61,9 @@ public class PlantStaxBuilder {
     }
 
     private AbstractPlant buildPlant(AbstractPlant plant, XMLStreamReader reader) throws PlantException, XMLStreamException {
-        plant.setId(reader.getAttributeValue(null, PlantXmlTag.PLANT_ID.getValue()));
+        plant.setId(reader.getAttributeValue(null, PlantXmlTag.PLANTID.getValue()));
         plant.setName(reader.getAttributeValue(null, PlantXmlTag.NAME.getValue()));
-        plant.setPlantingDate(LocalDate.parse(reader.getAttributeValue(null, PlantXmlTag.PLANTING_DATE.getValue())));
+        plant.setPlantingDate(LocalDate.parse(reader.getAttributeValue(null, PlantXmlTag.PLANTINGDATE.getValue())));
 
         String name;
         while (reader.hasNext()) {
@@ -76,17 +76,17 @@ public class PlantStaxBuilder {
                         switch (PlantXmlTag.valueOf(name.toUpperCase())) {
                             case SOIL -> plant.setSoil(data);
                             case ORIGIN -> plant.setOrigin(data);
-                            case STEM_COLOR -> plant.setStemColor(data);
-                            case LEAF_COLOR -> plant.setLeafColor(data);
+                            case STEMCOLOR -> plant.setStemColor(data);
+                            case LEAFCOLOR -> plant.setLeafColor(data);
                             case SIZE -> plant.setSize(Integer.parseInt(data));
                             case TEMPERATURE -> plant.setTemperature(Integer.parseInt(data));
                             case PHOTOPHILOUS -> plant.setPhotophilous(Boolean.parseBoolean(data));
                             case MULTIPLYING -> plant.setMultiplying(data);
-                            case CALYX_TYPE -> {
+                            case CALYXTYPE -> {
                                 DicotyledonPlant dicotyledon = (DicotyledonPlant) plant;
                                 dicotyledon.setCalyxType(data);
                             }
-                            case IS_FLOWER_FORMING -> {
+                            case ISFLOWERFORMING -> {
                                 MonocotyledonPlant monocotyledon = (MonocotyledonPlant) plant;
                                 monocotyledon.setFlowerForming(Boolean.parseBoolean(data));
                             }

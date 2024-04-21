@@ -19,7 +19,7 @@ public class PlantHandler extends DefaultHandler {
 
     public PlantHandler() {
         plants = new HashSet<>();
-        withText = EnumSet.range(PlantXmlTag.SOIL, PlantXmlTag.IS_FLOWER_FORMING);
+        withText = EnumSet.range(PlantXmlTag.SOIL, PlantXmlTag.ISFLOWERFORMING);
     }
 
     public Set<AbstractPlant> getPlants() {
@@ -28,8 +28,8 @@ public class PlantHandler extends DefaultHandler {
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) {
-        String monocotyledonTag = PlantXmlTag.MONOCOTYLEDON.toString();
-        String dicotyledonTag = PlantXmlTag.DICOTYLEDON.toString();
+        String monocotyledonTag = PlantXmlTag.MONOCOTYLEDON.getValue();
+        String dicotyledonTag = PlantXmlTag.DICOTYLEDON.getValue();
 
         if (monocotyledonTag.equals(qName) || dicotyledonTag.equals(qName)) {
             if (monocotyledonTag.equals(qName)) {
@@ -37,9 +37,9 @@ public class PlantHandler extends DefaultHandler {
             } else if (dicotyledonTag.equals(qName)) {
                 currentPlant = new DicotyledonPlant();
             }
-            currentPlant.setId(attributes.getValue(PlantXmlTag.PLANT_ID.getValue()));
+            currentPlant.setId(attributes.getValue(PlantXmlTag.PLANTID.getValue()));
             currentPlant.setName(attributes.getValue(PlantXmlTag.NAME.getValue()));
-            currentPlant.setPlantingDate(LocalDate.parse(attributes.getValue(PlantXmlTag.PLANTING_DATE.getValue())));
+            currentPlant.setPlantingDate(LocalDate.parse(attributes.getValue(PlantXmlTag.PLANTINGDATE.getValue())));
         } else {
             PlantXmlTag temp = PlantXmlTag.valueOf(qName.toUpperCase());
             if (withText.contains(temp)) {
@@ -50,8 +50,8 @@ public class PlantHandler extends DefaultHandler {
 
     @Override
     public void endElement(String uri, String localName, String qName) {
-        String monocotyledonTag = PlantXmlTag.MONOCOTYLEDON.toString();
-        String dicotyledonTag = PlantXmlTag.DICOTYLEDON.toString();
+        String monocotyledonTag = PlantXmlTag.MONOCOTYLEDON.getValue();
+        String dicotyledonTag = PlantXmlTag.DICOTYLEDON.getValue();
 
         if (monocotyledonTag.equals(qName) || dicotyledonTag.equals(qName)) {
             plants.add(currentPlant);
@@ -66,17 +66,17 @@ public class PlantHandler extends DefaultHandler {
             switch (currentXmlTag) {
                 case SOIL -> currentPlant.setSoil(data);
                 case ORIGIN -> currentPlant.setOrigin(data);
-                case STEM_COLOR -> currentPlant.setStemColor(data);
-                case LEAF_COLOR -> currentPlant.setLeafColor(data);
+                case STEMCOLOR -> currentPlant.setStemColor(data);
+                case LEAFCOLOR -> currentPlant.setLeafColor(data);
                 case SIZE -> currentPlant.setSize(Integer.parseInt(data));
                 case TEMPERATURE -> currentPlant.setTemperature(Integer.parseInt(data));
                 case PHOTOPHILOUS -> currentPlant.setPhotophilous(Boolean.parseBoolean(data));
                 case MULTIPLYING -> currentPlant.setMultiplying(data);
-                case CALYX_TYPE -> {
+                case CALYXTYPE -> {
                     DicotyledonPlant plant = (DicotyledonPlant) currentPlant;
                     plant.setCalyxType(data);
                 }
-                case IS_FLOWER_FORMING -> {
+                case ISFLOWERFORMING -> {
                     MonocotyledonPlant plant = (MonocotyledonPlant) currentPlant;
                     plant.setFlowerForming(Boolean.parseBoolean(data));
                 }
